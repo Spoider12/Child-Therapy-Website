@@ -10,6 +10,8 @@ import heroImg from "./assets/WhatsApp Image 2025-12-07 at 19.58.33_3b45b86f.jpg
 import Footer from "./components/Footer";
 import Services from "./components/services";
 import Testimonials from "./components/Testimonials";
+import ContactForm from "./components/ContactForm";
+
 
  export default function App() {
   function handleContact() {
@@ -20,6 +22,7 @@ import Testimonials from "./components/Testimonials";
   return (
     <>
       <Header />
+     
        <Hero image={heroImg} onContactClick={handleContact} />
        <AboutUs image={aboutImage} />
        {/* NAVBAR SECTION */}
@@ -48,6 +51,7 @@ import Testimonials from "./components/Testimonials";
     </Routes>
     <Services/>
     <Testimonials/>
+    <ContactForm/>
     <Footer />
     </>
   );
