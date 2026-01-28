@@ -1,5 +1,5 @@
 import { useState,useEffect } from "react";
-import { FaFacebookF, FaInstagram, FaWhatsapp } from "react-icons/fa";
+import { FaFacebookF, FaInstagram, FaWhatsapp, FaLinkedin} from "react-icons/fa";
 
 export default function Header() {
   const [active, setActive] = useState("Home");
@@ -131,6 +131,7 @@ export default function Header() {
           <FaFacebookF className="hover:text-blue-400 cursor-pointer" />
           <FaInstagram className="hover:text-pink-400 cursor-pointer" />
           <FaWhatsapp className="hover:text-green-500 cursor-pointer" />
+          <FaLinkedin className="hover:text-blue-700 cursor-pointer" />
         </div>
 
       </div>

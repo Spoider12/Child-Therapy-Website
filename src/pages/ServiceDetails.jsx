@@ -1,69 +1,73 @@
+import { useParams } from "react-router-dom";
+import servicesData from "../data/servicesData";
+
 export default function ServiceDetails() {
+  const { slug } = useParams();
+  const service = servicesData.find(s => s.slug === slug);
+
+  if (!service) {
+    return <div className="text-center py-20">Service not found</div>;
+  }
+
   return (
-    <div className="max-w-5xl mx-auto py-16 px-6">
+    <section className="max-w-7xl mx-auto px-6 py-20">
       
-      {/* TITLE */}
-      <h1 className="text-4xl font-bold text-blue-800 mb-4">
-        Pediatric Physiotherapy in Noida
-      </h1>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-14 items-start">
+        
+        {/* LEFT CONTENT */}
+        <div>
+          <h1 className="text-4xl font-bold mb-6">
+            {service.title}
+          </h1>
 
-      {/* INTRO */}
-      <p className="text-gray-700 leading-relaxed mb-8">
-        At <strong>Active Learning Child Development Centre, Noida सेक्टर 46</strong>, 
-        we provide specialized Pediatric Physiotherapy to improve your child’s movement, 
-        posture, balance, walking, and functional independence. Our goal is to help children 
-        achieve the best possible mobility and confidence in daily life.
-      </p>
+          <p className="text-gray-700 leading-relaxed mb-8">
+            {service.intro}
+          </p>
 
-      {/* HOW WE HELP */}
-      <h2 className="text-2xl font-semibold text-blue-700 mb-4">
-        ✅ How we help your child (Step-by-step):
-      </h2>
+          {/* STEP BY STEP */}
+          <h2 className="text-2xl font-semibold mb-4">
+            Step-by-step Training
+          </h2>
 
-      <ul className="list-disc list-inside space-y-2 text-gray-700 mb-8">
-        <li>Detailed child assessment & milestone evaluation</li>
-        <li>Muscle tone check (spasticity / hypotonia)</li>
-        <li>Strengthening exercises (core + legs + arms)</li>
-        <li>Balance & coordination training</li>
-        <li>Gait training (walking pattern correction)</li>
-        <li>Posture correction and alignment training</li>
-        <li>Home exercise program + parent guidance</li>
-      </ul>
+          <ul className="list-disc pl-6 space-y-2 text-gray-700 mb-8">
+            {service.steps.map((item, i) => (
+              <li key={i}>{item}</li>
+            ))}
+          </ul>
 
-      {/* KEY AREAS */}
-      <h2 className="text-2xl font-semibold text-blue-700 mb-4">
-        ✅ Key areas we work on:
-      </h2>
+          {/* HELPS IN */}
+          <h2 className="text-2xl font-semibold mb-4">
+            Helps In
+          </h2>
 
-      <ul className="list-disc list-inside space-y-2 text-gray-700 mb-8">
-        <li>Sitting balance and trunk control</li>
-        <li>Standing stability</li>
-        <li>Walking and stair climbing</li>
-        <li>Endurance and activity tolerance</li>
-        <li>Range of motion & flexibility</li>
-        <li>Functional activities for daily routine</li>
-      </ul>
+          <ul className="list-disc pl-6 space-y-2 text-gray-700 mb-8">
+            {service.helpsIn.map((item, i) => (
+              <li key={i}>{item}</li>
+            ))}
+          </ul>
 
-      {/* BEST FOR */}
-      <h2 className="text-2xl font-semibold text-blue-700 mb-4">
-        ✅ Best for children with:
-      </h2>
+          {/* BEST FOR */}
+          <h2 className="text-2xl font-semibold mb-4">
+            Best For Children With
+          </h2>
 
-      <ul className="list-disc list-inside space-y-2 text-gray-700 mb-8">
-        <li>Cerebral Palsy (CP)</li>
-        <li>Developmental delay / delayed milestones</li>
-        <li>Toe walking</li>
-        <li>Down syndrome</li>
-        <li>Hypotonia (low muscle tone)</li>
-        <li>Postural problems & frequent falls</li>
-      </ul>
+          <ul className="list-disc pl-6 space-y-2 text-gray-700">
+            {service.bestFor.map((item, i) => (
+              <li key={i}>{item}</li>
+            ))}
+          </ul>
+        </div>
 
-      {/* KEYWORDS */}
-      <p className="text-sm text-gray-500 mt-6">
-        <strong>Keywords:</strong> Pediatric physiotherapy Noida, CP therapy, gait training,
-        balance training, posture correction, milestone delay treatment
-      </p>
+        {/* RIGHT IMAGE */}
+        <div className="sticky top-28">
+          <img
+            src={service.image}
+            alt={service.title}
+            className="rounded-xl shadow-lg w-full object-cover"
+          />
+        </div>
 
-    </div>
+      </div>
+    </section>
   );
 }

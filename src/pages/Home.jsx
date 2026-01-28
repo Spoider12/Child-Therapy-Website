@@ -1,5 +1,5 @@
 import Hero from "../components/Hero";
-import AboutUs from "../components/AboutUs";
+
 import Services from "../components/Services";
 import DoctorScroll from "../components/DoctorScroll";
 import Stats from "../components/Stats";
@@ -13,7 +13,7 @@ export default function Home() {
   return (
     <>
       <Hero image={heroImg} />
-      <AboutUs image={aboutImage} />
+      
       <DoctorScroll />
       <Stats />
       <Services />
