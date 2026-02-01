@@ -56,16 +56,33 @@ const Footer = () => {
           <div>
             <h3 className="text-xl font-semibold mb-4">Follow Us</h3>
             <div className="flex gap-4">
-              <a className="w-11 h-11 bg-blue-600 rounded-full flex items-center justify-center hover:scale-110 transition">
+              <a
+                href="https://www.facebook.com/share/14SqK4L8ABx/"
+                target="_blank"
+                rel="noopener noreferrer"
+
+               className="w-11 h-11 bg-blue-600 rounded-full flex items-center justify-center hover:scale-110 transition">
                 <FaFacebookF />
               </a>
-              <a className="w-11 h-11 bg-red-600 rounded-full flex items-center justify-center hover:scale-110 transition">
+              <a 
+              href="http://www.youtube.com/@DrChandraPT"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-11 h-11 bg-red-600 rounded-full flex items-center justify-center hover:scale-110 transition">
                 <FaYoutube />
               </a>
-              <a className="w-11 h-11 bg-pink-600 rounded-full flex items-center justify-center hover:scale-110 transition">
+              <a
+              href="https://www.instagram.com/drchandrapt?igsh=MW44a3k4bWtlaDFueg=="
+                target="_blank"
+                rel="noopener noreferrer"
+                 className="w-11 h-11 bg-pink-600 rounded-full flex items-center justify-center hover:scale-110 transition">
                 <FaInstagram />
               </a>
-              <a className="w-11 h-11 bg-blue-600 rounded-full flex items-center justify-center hover:scale-110 transition">
+              <a
+              href="https://www.linkedin.com/in/akshay-raj-chandra-b62707ab"
+                target="_blank"
+                rel="noopener noreferrer"
+               className="w-11 h-11 bg-blue-600 rounded-full flex items-center justify-center hover:scale-110 transition">
                 <FaLinkedin />
               </a>
             </div>

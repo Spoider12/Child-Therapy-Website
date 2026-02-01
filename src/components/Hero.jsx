@@ -15,7 +15,11 @@ export default function Hero({ image, onContactClick }) {
 
           <div className="al-cta-row">
             <button className="al-btn" onClick={onContactClick || (() => {})}>Contact Us</button>
-            <button className="al-btn ghost">Book Consultation</button>
+            <button 
+            onClick={()=>
+               window.open(
+                "https://docs.google.com/forms/d/e/1FAIpQLSddaSk9ouEh63MliZaExD5JM1NhbyCIIYYqDXFweKSC7vd83w/viewform?usp=preview")} 
+            className="al-btn ghost">Book Consultation</button>
           </div>
 
           <p className="al-caption">Doctor caption: Expert therapy for premature infants — personalized early intervention and family support.</p>
