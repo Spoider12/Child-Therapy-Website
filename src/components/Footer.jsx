@@ -3,9 +3,9 @@ import { Link } from "react-router-dom";
 import { FaFacebookF, FaInstagram, FaYoutube, FaLinkedin } from "react-icons/fa";
 
 
-const Footer = () => {
+const Footer = ({footerRef}) => {
   return (
-    <footer
+    <footer ref={footerRef}
       className="bg-cover bg-center bg-no-repeat text-white"
       
     >

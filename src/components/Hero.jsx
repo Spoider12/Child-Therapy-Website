@@ -1,32 +1,54 @@
+import "./Hero.css";
 
-import './Hero.css';
+export default function Hero({ image, footerRef }) {
+  const handleContactClick = () => {
+    footerRef.current?.scrollIntoView({
+      behavior: "smooth",
+      block: "start",
+    });
+  };
 
-export default function Hero({ image, onContactClick }) {
   return (
     <section className="al-hero">
       <div className="al-hero-inner">
         <div className="al-hero-left">
-          <h1 className="al-heading">Helping children reach their full potential.</h1>
+          <h1 className="al-heading">
+            Helping children reach their full potential.
+          </h1>
+
           <p className="al-subtext">
-            ACTIVE LEARNING CDC is a child therapy centre providing therapeutic services to premature
-            and developmentally-challenged children. We focus on motor skills, sensory integration,
-            speech & language milestones with compassionate, evidence-based care.
+            ACTIVE LEARNING CDC is a child therapy centre providing therapeutic
+            services to premature and developmentally-challenged children.
           </p>
 
           <div className="al-cta-row">
-            <button className="al-btn" onClick={onContactClick || (() => {})}>Contact Us</button>
-            <button 
-            onClick={()=>
-               window.open(
-                "https://docs.google.com/forms/d/e/1FAIpQLSddaSk9ouEh63MliZaExD5JM1NhbyCIIYYqDXFweKSC7vd83w/viewform?usp=preview")} 
-            className="al-btn ghost">Book Consultation</button>
+            <button
+              onClick={handleContactClick}
+              className="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition"
+            >
+              Contact Us
+            </button>
+
+            <button
+              onClick={() =>
+                window.open(
+                  "https://docs.google.com/forms/d/e/1FAIpQLSe9G4vzjQdp6V7GAfojb6DWurpWrfI5DleHJWRuev3lwckKfw/viewform",
+                  "_blank"
+                )
+              }
+              className="al-btn ghost"
+            >
+              Book Consultation
+            </button>
           </div>
 
-          <p className="al-caption">Doctor caption: Expert therapy for premature infants — personalized early intervention and family support.</p>
+          <p className="al-caption">
+            Doctor caption: Expert therapy for premature infants — personalized
+            early intervention and family support.
+          </p>
         </div>
 
         <div className="al-hero-right">
-          {/* image should be imported in parent and passed as prop like: <Hero image={heroImg} /> */}
           <div className="al-image-frame">
             <img src={image} alt="Therapy session" className="al-image" />
           </div>

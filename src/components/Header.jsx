@@ -72,76 +72,76 @@ export default function Header() {
         </div>
 
         {/* MENU */}
-        <nav className="flex items-center gap-10 relative">
-          {menuItems.map((item) => (
-            <div
-              key={item}
-              className="relative flex flex-col items-center group cursor-pointer"
-              onMouseEnter={() => {
-                setActive(item);
-                if (item === "Services") setShowServices(true);
-              }}
-              onMouseLeave={() => {
-                if (item === "Services") setShowServices(false);
-              }}
-            >
-              <button
-                className={`text-sm font-medium ${
-                  active === item ? "text-white" : "text-gray-300"
-                } group-hover:text-white transition-colors`}
-              >
-                {item}
-                {item === "Services" && <span className="ml-1">▼</span>}
-              </button>
+      <nav className="flex items-center gap-10 relative">
+  {menuItems.map((item) => (
+    <div
+      key={item}
+      className="relative"
+      onClick={() => {
+        setActive(item);
+        if (item === "Services") setShowServices(!showServices);
+      }}
+      // onMouseLeave={() => {
+      //   if (item === "Services") setShowServices(false);
+      // }}
+    >
+      {/* MENU BUTTON */}
+      <button
+        className={`flex flex-col items-center text-sm font-medium cursor-pointer ${
+          active === item ? "text-white" : "text-gray-300"
+        } hover:text-white transition-colors`}
+      >
+        <span>
+          {item}
+          {item === "Services" && <span className="ml-1">▼</span>}
+        </span>
 
-              <div className="w-0 h-[2px] bg-white mt-1 group-hover:w-full transition-all duration-300"></div>
+        <span
+          className={`mt-1 h-[2px] bg-white transition-all duration-300 ${
+            active === item ? "w-full" : "w-0"
+          }`}
+        />
+      </button>
 
-              {active === item && (
-                <div className="w-full h-[2px] bg-white -mt-[2px]"></div>
-              )}
+      {/* SERVICES DROPDOWN */}
+      {item === "Services" && showServices && (
+        <div className="absolute top-full mt-6 left-1/2 -translate-x-1/2 w-[900px] bg-white text-black shadow-2xl rounded-lg p-8 grid grid-cols-3 gap-8 z-50">
+          <div>
+            <h4 className="font-semibold mb-3 text-blue-600">Therapies</h4>
+            <ul className="space-y-2 text-sm">
+              <li>Occupational Therapy</li>
+              <li>Paediatric Physiotherapy</li>
+              <li>Special Education Therapy</li>
+              <li>Speech & Language Therapy</li>
+            </ul>
+          </div>
 
-              {item === "Services" && showServices && (
-                <div className="absolute top-full mt-6 left-1/2 -translate-x-1/2 w-[900px] bg-white text-black shadow-2xl rounded-lg p-8 grid grid-cols-3 gap-8 z-50">
-                  <div>
-                    <h4 className="font-semibold mb-3 text-blue-600">
-                      Therapies
-                    </h4>
-                    <ul className="space-y-2 text-sm">
-                      <li>Occupational Therapy</li>
-                      <li>Paediatric Physiotherapy</li>
-                      <li>Special Education Therapy</li>
-                      <li>Speech & Language Therapy</li>
-                    </ul>
-                  </div>
+          <div>
+            <h4 className="font-semibold mb-3 text-blue-600">Programs</h4>
+            <ul className="space-y-2 text-sm">
+              <li>Early Intervention</li>
+              <li>Sensory Integration</li>
+              <li>Special Education</li>
+              <li>Parent Training</li>
+            </ul>
+          </div>
 
-                  <div>
-                    <h4 className="font-semibold mb-3 text-blue-600">
-                      Programs
-                    </h4>
-                    <ul className="space-y-2 text-sm">
-                      <li>Early Intervention</li>
-                      <li>Sensory Integration</li>
-                      <li>Special Education</li>
-                      <li>Parent Training</li>
-                    </ul>
-                  </div>
+          <div>
+            <h4 className="font-semibold mb-3 text-blue-600">Support</h4>
+            <ul className="space-y-2 text-sm">
+              <li>Assessment</li>
+              <li>Counselling</li>
+              <li>Group Therapy</li>
+              <li>Tele Therapy</li>
+            </ul>
+          </div>
+        </div>
+      )}
+    </div>
+  ))}
+</nav>
 
-                  <div>
-                    <h4 className="font-semibold mb-3 text-blue-600">
-                      Support
-                    </h4>
-                    <ul className="space-y-2 text-sm">
-                      <li>Assessment</li>
-                      <li>Counselling</li>
-                      <li>Group Therapy</li>
-                      <li>Tele Therapy</li>
-                    </ul>
-                  </div>
-                </div>
-              )}
-            </div>
-          ))}
-        </nav>
+
 
         {/* SOCIAL ICONS */}
         <div className="flex items-center gap-4 text-gray-300 text-lg">
