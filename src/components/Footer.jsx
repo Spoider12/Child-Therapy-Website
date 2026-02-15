@@ -57,7 +57,7 @@ const Footer = ({footerRef}) => {
             <h3 className="text-xl font-semibold mb-4">Follow Us</h3>
             <div className="flex gap-4">
               <a
-                href="https://www.facebook.com/share/14SqK4L8ABx/"
+                href="https://www.facebook.com/share/1DTiuMXCAi/"
                 target="_blank"
                 rel="noopener noreferrer"
 
@@ -65,7 +65,7 @@ const Footer = ({footerRef}) => {
                 <FaFacebookF />
               </a>
               <a 
-              href="http://www.youtube.com/@DrChandraPT"
+              href="https://youtube.com/@therapyalcdc?si=vEXXx-4MQ9lMEqon"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-11 h-11 bg-red-600 rounded-full flex items-center justify-center hover:scale-110 transition">

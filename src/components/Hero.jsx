@@ -13,7 +13,7 @@ export default function Hero({ image, footerRef }) {
       <div className="al-hero-inner">
         <div className="al-hero-left">
           <h1 className="al-heading">
-            Helping children reach their full potential.
+           Helping Little Steps Lead to Big Achievements.
           </h1>
 
           <p className="al-subtext">
@@ -24,7 +24,7 @@ export default function Hero({ image, footerRef }) {
           <div className="al-cta-row">
             <button
               onClick={handleContactClick}
-              className="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition"
+              className="bg-green-700 text-white px-6 py-3 rounded-lg hover:bg-green-800 transition"
             >
               Contact Us
             </button>

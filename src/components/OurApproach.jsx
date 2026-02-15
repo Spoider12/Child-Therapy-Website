@@ -1,22 +1,22 @@
 const steps = [
   {
     title: "Consultation",
-    text: "This entails reviewing developmental history, understanding parental concerns, & conducting behavioral observation to identify the child’s therapy needs.",
+    text: "We begin by understanding your child’s developmental history and your concerns. Through discussion and observation, we identify areas where your child may need support and guide you on the next steps.",
     bg: "bg-teal-200",
   },
   {
     title: "Assessment",
-    text: "Administration of standardized tests to determine developmental levels and functional strengths.",
+    text: "A detailed assessment is conducted to evaluate your child’s motor, sensory, communication, and functional abilities. This helps us understand strengths, challenges, and developmental levels accurately.",
     bg: "bg-pink-300",
   },
   {
     title: "Recommendation",
-    text: "This outlines a goal-oriented therapy plan, defines session frequency, and ensures coordinated care across specialists.",
+    text: "Based on assessment findings, we design an individualized therapy plan, recommend session frequency, and guide parents on home activities to support progress",
     bg: "bg-teal-200",
   },
   {
     title: "Therapy",
-    text: "Implementing targeted interventions, monitoring progress, and equipping parents with strategies for home support.",
+    text: "Therapy sessions focus on improving movement, functional skills, communication, and independence. We regularly monitor progress and train parents to continue support at home",
     bg: "bg-pink-300",
   },
 ];

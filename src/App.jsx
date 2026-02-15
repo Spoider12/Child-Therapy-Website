@@ -1,7 +1,6 @@
 import { Routes, Route } from "react-router-dom";
-
+import Contact from "./pages/Contact";
 import Header from "./components/Header";
-import Footer from "./components/Footer";
 import Services from "./components/Services";
 import Home from "./pages/Home";
 import ServiceDetails from "./pages/ServiceDetails";
@@ -20,6 +19,7 @@ export default function App() {
           <Route path="/" element={<Home />} />
           <Route path="/services" element={<Services />} />
           <Route path="/services/:slug" element={<ServiceDetails />} />
+          <Route path="/contact" element={<Contact />} />
         </Routes>
       </div>
 
