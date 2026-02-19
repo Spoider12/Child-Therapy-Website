@@ -15,6 +15,8 @@ export default function Header() {
 
   const [active, setActive] = useState("Home");
   const [showServices, setShowServices] = useState(false);
+  const [mobileSubMenu, setMobileSubMenu] = useState(null);
+
   const [mobileServices, setMobileServices] = useState(false);
   const [showHeader, setShowHeader] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
@@ -197,21 +199,83 @@ export default function Header() {
               </div>
 
               {/* Mobile Services Dropdown */}
-              {item === "Services" && mobileServices && (
-                <div className="pl-4 mt-4 space-y-3 text-gray-300">
-                  <p>Occupational Therapy</p>
-                  <p>Paediatric Physiotherapy</p>
-                  <p>Special Education Therapy</p>
-                  <p>Speech & Language Therapy</p>
-                  <p>Early Intervention</p>
-                  <p>Sensory Integration</p>
-                  <p>Parent Training</p>
-                  <p>Assessment</p>
-                  <p>Counselling</p>
-                  <p>Group Therapy</p>
-                  <p>Tele Therapy</p>
-                </div>
-              )}
+                                {item === "Services" && mobileServices && (
+                    <div className="pl-4 mt-4 space-y-4 text-gray-300">
+
+                      {/* ===== Therapies ===== */}
+                      <div>
+                        <div
+                          onClick={() =>
+                            setMobileSubMenu(
+                              mobileSubMenu === "therapies" ? null : "therapies"
+                            )
+                          }
+                          className="flex justify-between items-center cursor-pointer"
+                        >
+                          <span>Therapies</span>
+                          <span>{mobileSubMenu === "therapies" ? "▲" : "▼"}</span>
+                        </div>
+
+                        {mobileSubMenu === "therapies" && (
+                          <div className="pl-4 mt-3 space-y-2 text-sm">
+                            <p className="cursor-pointer hover:text-blue-400">Occupational Therapy</p>
+                            <p className="cursor-pointer hover:text-blue-400">Paediatric Physiotherapy</p>
+                            <p className="cursor-pointer hover:text-blue-400">Special Education Therapy</p>
+                            <p className="cursor-pointer hover:text-blue-400">Speech & Language Therapy</p>
+                          </div>
+                        )}
+                      </div>
+
+                      {/* ===== Programs ===== */}
+                      <div>
+                        <div
+                          onClick={() =>
+                            setMobileSubMenu(
+                              mobileSubMenu === "programs" ? null : "programs"
+                            )
+                          }
+                          className="flex justify-between items-center cursor-pointer"
+                        >
+                          <span>Programs</span>
+                          <span>{mobileSubMenu === "programs" ? "▲" : "▼"}</span>
+                        </div>
+
+                        {mobileSubMenu === "programs" && (
+                          <div className="pl-4 mt-3 space-y-2 text-sm">
+                            <p className="cursor-pointer hover:text-blue-400">Early Intervention</p>
+                            <p className="cursor-pointer hover:text-blue-400">Sensory Integration</p>
+                            <p className="cursor-pointer hover:text-blue-400">Parent Training</p>
+                          </div>
+                        )}
+                      </div>
+
+                      {/* ===== Support ===== */}
+                      <div>
+                        <div
+                          onClick={() =>
+                            setMobileSubMenu(
+                              mobileSubMenu === "support" ? null : "support"
+                            )
+                          }
+                          className="flex justify-between items-center cursor-pointer"
+                        >
+                          <span>Support</span>
+                          <span>{mobileSubMenu === "support" ? "▲" : "▼"}</span>
+                        </div>
+
+                        {mobileSubMenu === "support" && (
+                          <div className="pl-4 mt-3 space-y-2 text-sm">
+                            <p className="cursor-pointer hover:text-blue-400">Assessment</p>
+                            <p className="cursor-pointer hover:text-blue-400">Counselling</p>
+                            <p className="cursor-pointer hover:text-blue-400">Group Therapy</p>
+                            <p className="cursor-pointer hover:text-blue-400">Tele Therapy</p>
+                          </div>
+                        )}
+                      </div>
+
+                    </div>
+                  )}
+
             </div>
           ))}
                     {/* ================= MOBILE SOCIAL ICONS ================= */}
