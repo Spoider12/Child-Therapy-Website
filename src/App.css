@@ -1,0 +1,25 @@
+#root {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+
+/* Floating Label Fix (for Contact Form) */
+.floating-label {
+  position: absolute;
+  left: 0;
+  top: 0.75rem;
+  color: #9ca3af;
+  transition: all 0.25s ease;
+  pointer-events: none;
+}
+
+.peer:focus ~ .floating-label,
+.peer:not([value=""]) ~ .floating-label,
+.peer:not(:placeholder-shown) ~ .floating-label {
+  top: -0.75rem;
+  font-size: 0.875rem;
+  color: #60a5fa;
+}
+
+
