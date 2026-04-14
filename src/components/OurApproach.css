@@ -1,0 +1,115 @@
+.approach {
+  padding: 4rem 2rem;
+  background: #f5f6f8;
+  text-align: center;
+}
+
+/* Title */
+.approach-title {
+  font-size: 2.8rem;
+  font-weight: 800;
+  margin-bottom: 3rem;
+}
+
+.highlight {
+  color: #ff6a00;
+}
+
+/* Layout */
+.approach-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+/* Wrapper for card + arrow */
+.approach-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+/* Card */
+.approach-card {
+  position: relative;
+  width: 260px;
+  padding: 2.5rem 1.5rem 1.8rem;
+  background: #ffffff;
+  border-radius: 18px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.approach-card:hover {
+  transform: translateY(-6px);
+}
+
+/* Circle Number */
+.step-circle {
+  position: absolute;
+  top: -22px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
+  color: white;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Colors */
+.teal {
+  background: linear-gradient(135deg, #1abc9c, #16a085);
+}
+
+.pink {
+  background: linear-gradient(135deg, #ff6fa5, #ff4d88);
+}
+
+.green {
+  background: linear-gradient(135deg, #2ecc71, #27ae60);
+}
+
+.red {
+  background: linear-gradient(135deg, #ff6b6b, #ff4b5c);
+}
+
+/* Text */
+.approach-card h3 {
+  margin-top: 1rem;
+  font-size: 1.3rem;
+}
+
+.approach-card p {
+  font-size: 0.95rem;
+  color: #555;
+  margin-top: 0.5rem;
+  line-height: 1.5;
+}
+
+/* Arrow */
+.arrow {
+  font-size: 1.8rem;
+  color: #bbb;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .approach-container {
+    flex-direction: column;
+  }
+
+  .approach-wrapper {
+    flex-direction: column;
+  }
+
+  .arrow {
+    transform: rotate(90deg);
+  }
+}

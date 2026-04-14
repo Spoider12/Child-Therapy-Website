@@ -26,6 +26,7 @@ export default function Header() {
     "Home",
     "About Us",
     "Services",
+    
     "Gallery",
     "Blog",
     "Contact Us",
@@ -33,16 +34,31 @@ export default function Header() {
 
   /* ================= SCROLL HIDE HEADER ================= */
   useEffect(() => {
-    const handleScroll = () => {
-      const currentScrollY = window.scrollY;
-      setShowHeader(!(currentScrollY > lastScrollY && currentScrollY > 80));
-      setLastScrollY(currentScrollY);
-    };
+  let lastScrollY = window.scrollY;
 
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, [lastScrollY]);
+  const handleScroll = () => {
+    const currentScrollY = window.scrollY;
 
+    // Always show at top
+    if (currentScrollY < 60) {
+      setShowHeader(true);
+    } 
+    // Scroll down → hide
+    else if (currentScrollY > lastScrollY) {
+      setShowHeader(false);
+    } 
+    // Scroll up → show
+    else {
+      setShowHeader(true);
+    }
+
+    lastScrollY = currentScrollY;
+  };
+
+  window.addEventListener("scroll", handleScroll);
+
+  return () => window.removeEventListener("scroll", handleScroll);
+}, []);
   /* ================= CLOSE DROPDOWN WHEN CLICK OUTSIDE ================= */
   useEffect(() => {
     const handleClickOutside = (event) => {
@@ -68,6 +84,15 @@ export default function Header() {
 
     if (item === "Home") navigate("/");
     if (item === "About Us") navigate("/about");
+    if (item === "Why Choose Us") {
+      navigate("/");
+      setTimeout(() => {
+        document
+          .getElementById("why-choose-us")
+          ?.scrollIntoView({ behavior: "smooth", block: "start" });
+      }, 80);
+      return;
+    }
     if (item === "Contact Us") navigate("/contact");
     if (item === "Gallery") navigate("/gallery");
     if (item === "Blog") navigate("/blog");
@@ -121,8 +146,15 @@ export default function Header() {
                       Therapies
                     </h3>
                     <ul className="space-y-3 text-gray-700">
-                      <li className="hover:text-blue-600 cursor-pointer">Occupational Therapy</li>
-                      <li className="hover:text-blue-600 cursor-pointer">Paediatric Physiotherapy</li>
+                      <li>
+                        <a href="/services/occupational-therapy" className="hover:text-blue-600 transition">  
+                        Occupational Therapy</a>
+                      </li>
+                      <li >
+                        <a href="/services/paediatric-physiotherapy" className="hover:text-blue-600 transition">
+                          Paediatric Physiotherapy
+                        </a>
+                      </li>
                       <li className="hover:text-blue-600 cursor-pointer">Special Education Therapy</li>
                       <li className="hover:text-blue-600 cursor-pointer">Speech & Language Therapy</li>
                     </ul>
