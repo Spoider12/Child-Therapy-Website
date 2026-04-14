@@ -1,6 +1,10 @@
-import "./Hero.css";
+﻿import "./Hero.css";
+import { useState, useRef, useEffect } from "react";
 
 export default function Hero({ image, footerRef }) {
+  const [open, setOpen] = useState(false);
+  const dropdownRef = useRef();
+
   const handleContactClick = () => {
     footerRef.current?.scrollIntoView({
       behavior: "smooth",
@@ -8,12 +12,31 @@ export default function Hero({ image, footerRef }) {
     });
   };
 
+  // Close on outside click
+  useEffect(() => {
+    const handler = (e) => {
+      if (!dropdownRef.current?.contains(e.target)) {
+        setOpen(false);
+      }
+    };
+    document.addEventListener("mousedown", handler);
+    return () => document.removeEventListener("mousedown", handler);
+  }, []);
+
+  const openClinic = () => {
+    window.open("https://docs.google.com/forms/...", "_blank");
+  };
+
+  const openHome = () => {
+    window.open("https://docs.google.com/forms/...", "_blank");
+  };
+
   return (
     <section className="al-hero">
       <div className="al-hero-inner">
         <div className="al-hero-left">
           <h1 className="al-heading">
-           Helping Little Steps Lead to Big Achievements.
+            Helping Little Steps Lead to Big Achievements.
           </h1>
 
           <p className="al-subtext">
@@ -22,24 +45,42 @@ export default function Hero({ image, footerRef }) {
           </p>
 
           <div className="al-cta-row">
+            {/* Contact */}
             <button
               onClick={handleContactClick}
-              className="bg-green-700 text-white px-6 py-3 rounded-lg hover:bg-green-800 transition"
+              className="bg-green-700 text-white px-6 py-3 rounded-lg hover:bg-green-800 transition shadow-md"
             >
               Contact Us
             </button>
 
-            <button
-              onClick={() =>
-                window.open(
-                  "https://docs.google.com/forms/d/e/1FAIpQLSe9G4vzjQdp6V7GAfojb6DWurpWrfI5DleHJWRuev3lwckKfw/viewform",
-                  "_blank"
-                )
-              }
-              className="al-btn ghost"
-            >
-              Book Consultation
-            </button>
+            {/* Premium Dropdown */}
+            <div className="dropdown-container" ref={dropdownRef}>
+              <button
+                onClick={() => setOpen(!open)}
+                className="dropdown-btn"
+              >
+                Book Consultation
+                <span className={`arrow ${open ? "rotate" : ""}`}>⌄</span>
+              </button>
+
+              <div className={`dropdown-menu ${open ? "show" : ""}`}>
+                <button onClick={openClinic} className="dropdown-item">
+                  <span>🏥</span>
+                  <div>
+                    <p className="title">At Clinic</p>
+                    <p className="desc">Visit our center for consultation</p>
+                  </div>
+                </button>
+
+                <button onClick={openHome} className="dropdown-item">
+                  <span>🏠</span>
+                  <div>
+                    <p className="title">At Home</p>
+                    <p className="desc">Get therapy at your home</p>
+                  </div>
+                </button>
+              </div>
+            </div>
           </div>
 
           <p className="al-caption">
