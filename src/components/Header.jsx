@@ -8,6 +8,7 @@ import {
   FaGoogle,
   FaPhoneAlt,
 } from "react-icons/fa";
+import { Contact } from "lucide-react";
 
 export default function Header() {
   const navigate = useNavigate();
@@ -26,10 +27,13 @@ export default function Header() {
     "Home",
     "About Us",
     "Services",
-    
-    "Gallery",
-    "Blog",
+    "Conditon We Treat",
     "Contact Us",
+    "Blog",
+    "Gallery",
+    "Success Stories",
+    
+    
   ];
 
   /* ================= SCROLL HIDE HEADER ================= */
@@ -96,6 +100,7 @@ export default function Header() {
     if (item === "Contact Us") navigate("/contact");
     if (item === "Gallery") navigate("/gallery");
     if (item === "Blog") navigate("/blog");
+    if (item === "Conditon We Treat") navigate("/conditions");
   };
 
   return (
@@ -170,6 +175,10 @@ export default function Header() {
                       <li className="hover:text-blue-600 cursor-pointer">Sensory Integration</li>
                       <li className="hover:text-blue-600 cursor-pointer">Special Education</li>
                       <li className="hover:text-blue-600 cursor-pointer">Parent Training</li>
+                      <li className="hover:text-blue-600 cursor-pointer">Developmental Delay Therapy</li>
+                      <li className="hover:text-blue-600 cursor-pointer">Speech Therapy</li>
+                      <li className="hover:text-blue-600 cursor-pointer">Neuro Developmental Therapy</li>
+                      <li className="hover:text-blue-600 cursor-pointer">Home Access Program</li>
                     </ul>
                   </div>
 

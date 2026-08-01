@@ -17,11 +17,16 @@ const services = [
     rating: 4.8,
   },
   {
-    title: "DMI Therapy (Dynamic Movement Intervention)",
-    desc: "DMI is an advanced physiotherapy approach that helps children improve posture control, strength, balance reactions and movement transitions.",
-    slug: "dmi-therapy",
-    served: "760+ sessions",
-    rating: 4.9,
+    title: "Gait Training",
+    desc: "Our Gait Training program focuses on improving walking patterns, balance, coordination and strength for children with mobility challenges. We use advanced techniques to help children walk more confidently and independently.",
+    slug: "gait-training-for-children",
+    
+  },
+  {
+    title: "Cerebal Palsy Rehabilitation",
+    desc: "Our Cerebral Palsy Rehabilitation program provides specialized therapies to improve motor function, muscle tone, coordination and overall quality of life for children with cerebral palsy. We create personalized plans to help each child reach their full potential.",
+    slug: "cerebral-palsy-rehabilitation",
+    
   },
   {
     title: "Special Education",

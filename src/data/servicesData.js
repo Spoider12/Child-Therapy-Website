@@ -100,6 +100,75 @@ const servicesData = [
   keywords:
     "DMI therapy Noida, dynamic movement intervention, gross motor therapy, CP milestone improvement, posture control",
 },
+
+
+{
+  slug: "cerebral-palsy-rehabilitation",
+  title: "Cerebral Palsy Rehabilitation",
+
+  intro:
+    "Our Cerebral Palsy Rehabilitation program provides specialized therapy for children with spastic diplegia, hemiplegia, quadriplegia, hypotonia, ataxic cerebral palsy, dyskinetic cerebral palsy, and other pediatric neurological conditions. We focus on improving mobility, posture, balance, coordination, strength, gait, and functional independence through personalized pediatric rehabilitation plans.",
+
+  steps: [
+    "Detailed functional & motor assessment",
+    "Pediatric physiotherapy sessions",
+    "Neurodevelopmental Therapy (NDT)",
+    "Gait training & balance exercises",
+    "Stretching & strengthening exercises",
+    "Sensory integration therapy",
+    "Fine motor & hand function training",
+    "Postural management & coordination training",
+    "Daily living skills (ADLs) training",
+  ],
+
+  helpsIn: [
+    "Improved walking & mobility",
+    "Better posture & balance",
+    "Enhanced muscle strength",
+    "Improved hand function & coordination",
+    "Better independence in daily activities",
+    "Improved motor development",
+    "Better functional movement",
+  ],
+
+  bestFor: [
+    "Spastic Diplegia Therapy",
+    "Hemiplegia Rehabilitation",
+    "Quadriplegia Management",
+    "Hypotonia Treatment",
+    "Ataxic Cerebral Palsy",
+    "Dyskinetic Cerebral Palsy",
+    "Developmental Delay",
+    "Pediatric neurological conditions",
+  ],
+
+  keywords:
+    "Cerebral palsy rehabilitation, spastic diplegia therapy, hemiplegia rehabilitation, quadriplegia therapy, pediatric physiotherapy, gait training therapy, NDT therapy, CP treatment for children, sensory integration therapy, child rehabilitation center",
+},
+{
+  slug: "gait-training-for-children",
+  title: "Gait Training for Children with Cerebral Palsy",
+
+  intro:
+    "Our Gait Training program focuses on improving walking patterns, balance, coordination and strength for children with mobility challenges. We use advanced techniques to help children walk more confidently and independently.",
+    description: `
+Gait Training for Children with Cerebral Palsy
+
+Our pediatric gait training program is specially designed for children with cerebral palsy, spastic diplegia, hemiplegia, quadriplegia, developmental delay, toe walking, balance disorders, and neurological conditions. The therapy focuses on improving walking ability, posture, balance, coordination, lower limb strength, endurance, and functional mobility through evidence-based pediatric rehabilitation techniques.
+
+At Active Learning Child Development Centre, we provide individualized gait rehabilitation programs for children with cerebral palsy to improve walking pattern, weight shifting, standing balance, posture control, muscle strength, joint stability, and independent mobility. Our therapy sessions include gait correction exercises, balance and coordination training, stretching, strengthening exercises, postural management, and functional walking activities.
+
+We use advanced pediatric physiotherapy and neurodevelopmental treatment (NDT) techniques to help children achieve better walking efficiency, confidence, and participation in daily activities. Our goal-oriented gait training helps improve gross motor skills, mobility, and functional independence in children with cerebral palsy and other pediatric neurological disorders.
+`,
+   
+
+  
+},
+
+
+
+
+
 {
   slug: "Special-Education",
   title: "Special Education & Learning Support",

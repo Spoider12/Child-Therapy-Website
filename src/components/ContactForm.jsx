@@ -1,5 +1,6 @@
 import { useState, useRef, useEffect } from "react";
-import bgImage from "../assets/contact-bg.jpg";
+import bgImage from "../assets/updatedcontact.png";
+import { apiRequest } from "../api/http";
 
 const services = [
   "Pediatric Physiotherapy",
@@ -14,81 +15,115 @@ const services = [
 export default function ContactForm() {
   const [service, setService] = useState("");
   const [open, setOpen] = useState(false);
+
+  const [name, setName] = useState("");
+  const [phone, setPhone] = useState("");
+  const [email, setEmail] = useState("");
+  const [message, setMessage] = useState("");
+  const [submitState, setSubmitState] = useState("idle");
+  const [feedback, setFeedback] = useState("");
+
   const dropdownRef = useRef(null);
 
-  // Close dropdown on outside click
   useEffect(() => {
     const handleClickOutside = (e) => {
       if (dropdownRef.current && !dropdownRef.current.contains(e.target)) {
         setOpen(false);
       }
     };
+
     document.addEventListener("mousedown", handleClickOutside);
+
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setSubmitState("loading");
+    setFeedback("");
+
+    try {
+      const data = await apiRequest("/contacts", {
+        method: "POST",
+        body: JSON.stringify({ name, phone, email, service, message }),
+      });
+
+      setName("");
+      setPhone("");
+      setEmail("");
+      setService("");
+      setMessage("");
+      setSubmitState("success");
+      setFeedback(data.message || "Message submitted. Our team will contact you soon.");
+    } catch (error) {
+      console.log(error);
+      setSubmitState("error");
+      setFeedback(error.message || "Failed to send message");
+    }
+  };
 
   return (
     <section
       className="relative min-h-screen flex items-center bg-cover bg-center"
       style={{ backgroundImage: `url(${bgImage})` }}
     >
-      {/* DARK OVERLAY */}
       <div className="absolute inset-0 bg-black/75"></div>
 
-      {/* CONTENT */}
       <div className="relative z-10 max-w-6xl mx-auto px-6 w-full grid md:grid-cols-2 gap-16 items-center">
-
-        {/* LEFT TEXT */}
         <div className="text-white">
           <h2 className="text-5xl font-bold leading-tight mb-6">
-            Let’s Talk About <br /> Your Child’s Growth
+            Early Support Can <br /> Make a Big Difference.
           </h2>
+
           <p className="text-gray-300 text-lg leading-relaxed">
             Our experts guide you with the right therapy programs for your
-            child’s physical, emotional and cognitive development.
+            child's physical, emotional and cognitive development.
           </p>
         </div>
 
-        {/* RIGHT FORM */}
-        <form className="space-y-8">
-
-          {/* NAME */}
+        <form className="space-y-8" onSubmit={handleSubmit}>
           <div className="relative">
             <input
               type="text"
               required
+              value={name}
+              onChange={(e) => setName(e.target.value)}
               className="peer w-full bg-transparent border-b-2 border-gray-400 text-white py-3 focus:outline-none focus:border-blue-500"
             />
+
             <label className="absolute left-0 top-3 text-gray-400 transition-all peer-focus:-top-3 peer-focus:text-sm peer-focus:text-blue-400 peer-valid:-top-3 peer-valid:text-sm">
               Your Name
             </label>
           </div>
 
-          {/* PHONE */}
           <div className="relative">
             <input
               type="tel"
               required
+              value={phone}
+              onChange={(e) => setPhone(e.target.value)}
               className="peer w-full bg-transparent border-b-2 border-gray-400 text-white py-3 focus:outline-none focus:border-blue-500"
             />
+
             <label className="absolute left-0 top-3 text-gray-400 transition-all peer-focus:-top-3 peer-focus:text-sm peer-focus:text-blue-400 peer-valid:-top-3 peer-valid:text-sm">
               Phone Number
             </label>
           </div>
 
-          {/* EMAIL */}
           <div className="relative">
             <input
               type="email"
               required
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
               className="peer w-full bg-transparent border-b-2 border-gray-400 text-white py-3 focus:outline-none focus:border-blue-500"
             />
+
             <label className="absolute left-0 top-3 text-gray-400 transition-all peer-focus:-top-3 peer-focus:text-sm peer-focus:text-blue-400 peer-valid:-top-3 peer-valid:text-sm">
               Email Address
             </label>
           </div>
 
-          {/* 🔥 PREMIUM SERVICE DROPDOWN */}
           <div ref={dropdownRef} className="relative">
             <div
               onClick={() => setOpen(!open)}
@@ -98,24 +133,10 @@ export default function ContactForm() {
                 {service || "Select Service"}
               </span>
 
-              <span
-                className={`transition-transform duration-300 ${
-                  open ? "rotate-180" : ""
-                }`}
-              >
-                ▾
+              <span className={`transition-transform duration-300 ${open ? "rotate-180" : ""}`}>
+                v
               </span>
             </div>
-
-            <label
-              className={`absolute left-0 transition-all duration-300 ${
-                service || open
-                  ? "-top-3 text-sm text-blue-400"
-                  : "top-3 text-gray-400"
-              }`}
-            >
-             
-            </label>
 
             <div
               className={`absolute z-30 mt-2 w-full rounded-xl overflow-hidden
@@ -141,26 +162,33 @@ export default function ContactForm() {
             </div>
           </div>
 
-          {/* MESSAGE */}
           <div className="relative">
             <textarea
               rows="4"
               required
+              value={message}
+              onChange={(e) => setMessage(e.target.value)}
               className="peer w-full bg-transparent border-b-2 border-gray-400 text-white py-3 focus:outline-none focus:border-blue-500 resize-none"
             ></textarea>
+
             <label className="absolute left-0 top-3 text-gray-400 transition-all peer-focus:-top-3 peer-focus:text-sm peer-focus:text-blue-400 peer-valid:-top-3 peer-valid:text-sm">
               Your Message
             </label>
           </div>
 
-          {/* BUTTON */}
+          {feedback && (
+            <p className={submitState === "error" ? "text-red-300" : "text-green-300"}>
+              {feedback}
+            </p>
+          )}
+
           <button
             type="submit"
-            className="w-full bg-blue-600 hover:bg-blue-700 text-white py-4 font-semibold tracking-wide transition"
+            disabled={submitState === "loading"}
+            className="w-full bg-blue-600 hover:bg-blue-700 text-white py-4 font-semibold tracking-wide transition disabled:cursor-not-allowed disabled:opacity-70"
           >
-            Send Message
+            {submitState === "loading" ? "Sending..." : "Send Message"}
           </button>
-
         </form>
       </div>
     </section>

@@ -30,7 +30,7 @@ export default function ServiceDetails() {
           </h2>
 
           <ul className="list-disc pl-6 space-y-2 text-gray-700 mb-8">
-            {service.steps.map((item, i) => (
+            {service.steps?.map((item, i) => (
               <li key={i}>{item}</li>
             ))}
           </ul>
@@ -41,7 +41,7 @@ export default function ServiceDetails() {
           </h2>
 
           <ul className="list-disc pl-6 space-y-2 text-gray-700 mb-8">
-            {service.helpsIn.map((item, i) => (
+            {service.helpsIn?.map((item, i) => (
               <li key={i}>{item}</li>
             ))}
           </ul>
@@ -52,7 +52,7 @@ export default function ServiceDetails() {
           </h2>
 
           <ul className="list-disc pl-6 space-y-2 text-gray-700">
-            {service.bestFor.map((item, i) => (
+            {service.bestFor?.map((item, i) => (
               <li key={i}>{item}</li>
             ))}
           </ul>
