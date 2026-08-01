@@ -1,0 +1,11 @@
+﻿import { Router } from 'express';
+import SeoSettings from '../models/SeoSettings.js';
+import SiteSettings from '../models/SiteSettings.js';
+import { getSingleton, upsertSingleton } from '../controllers/singletonController.js';
+import { setUploadFolder, upload } from '../middleware/upload.js';
+const router = Router();
+router.get('/seo', getSingleton(SeoSettings));
+router.put('/seo', setUploadFolder('seo'), upload.single('image'), upsertSingleton(SeoSettings));
+router.get('/site', getSingleton(SiteSettings));
+router.put('/site', setUploadFolder('settings'), upload.single('logo'), upsertSingleton(SiteSettings));
+export default router;
