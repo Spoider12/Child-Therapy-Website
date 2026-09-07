@@ -8,7 +8,6 @@ import {
   FaGoogle,
   FaPhoneAlt,
 } from "react-icons/fa";
-import { Contact } from "lucide-react";
 
 export default function Header() {
   const navigate = useNavigate();
